@@ -1,0 +1,24 @@
+INTENT: Debug a failing API endpoint that returns 500 on POST /api/users/register
+
+WHY: Blocking new user signups in production — urgent fix needed
+
+FOR: Senior backend developer
+
+CONTEXT:
+  error: Internal Server Error — Cannot read properties of undefined (reading 'id')
+  file: src/controllers/auth.controller.ts
+  stack: NestJS + Prisma + PostgreSQL
+  auth: JWT
+  env: production
+
+CONSTRAINTS:
+  format: root cause analysis + minimal fix
+  style: no refactoring, fix only the broken path
+
+ASSUMPTIONS:
+  - Database connection is healthy
+  - The error is reproducible in staging
+  - Prisma schema is up to date
+
+---
+Additional notes: check if the user DTO validation is missing a required field.

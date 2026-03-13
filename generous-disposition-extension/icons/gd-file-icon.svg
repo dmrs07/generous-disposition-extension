@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+  <!-- File shape -->
+  <rect x="1" y="1" width="10" height="13" rx="1.5" fill="#1a1a1a" stroke="#7B5EA7" stroke-width="1"/>
+  <!-- Dog-ear -->
+  <polyline points="8,1 11,1 11,4 8,4 8,1" fill="#7B5EA7" stroke="none"/>
+  <!-- Concentric circles centered in file body -->
+  <circle cx="6" cy="9" r="3.2" fill="none" stroke="#7B5EA7" stroke-width="1"/>
+  <circle cx="6" cy="9" r="1.5" fill="none" stroke="#9B7FD4" stroke-width="0.9"/>
+  <circle cx="6" cy="9" r="0.6" fill="#9B7FD4"/>
+</svg>

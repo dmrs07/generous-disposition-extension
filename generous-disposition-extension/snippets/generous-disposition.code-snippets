@@ -1,0 +1,185 @@
+{
+  "Full GD Template": {
+    "scope": "generous-disposition",
+    "prefix": "gd",
+    "body": [
+      "INTENT: ${1:Describe what you want to build}",
+      "",
+      "WHY: ${2:Business context or purpose}",
+      "",
+      "FOR: ${3:Audience and skill level}",
+      "",
+      "CONTEXT:",
+      "  stack: ${4:technology stack}",
+      "  ${5:key}: ${6:value}",
+      "",
+      "CONSTRAINTS:",
+      "  format: ${7:output format}",
+      "  length: ${8:length limit}",
+      "",
+      "EXAMPLE:",
+      "  ${9:example output fragment}",
+      "",
+      "ASSUMPTIONS:",
+      "  - ${10:assumption one}",
+      "  - ${11:assumption two}",
+      "",
+      "DECOMPOSE:",
+      "  task-1: ${12:first task}",
+      "  task-2: ${13:second task}",
+      "  strategy: ${14|sequential,parallel,hybrid|}",
+      "$0"
+    ],
+    "description": "Full GD template with all blocks"
+  },
+  "Coding Task": {
+    "scope": "generous-disposition",
+    "prefix": "gd-code",
+    "body": [
+      "INTENT: ${1:Write a function/script/component that}",
+      "",
+      "WHY: ${2:Why this code is needed}",
+      "",
+      "FOR: ${3:Senior developer, code review}",
+      "",
+      "CONTEXT:",
+      "  language: ${4:Python/TypeScript/etc}",
+      "  framework: ${5:framework name}",
+      "  stack: ${6:full stack}",
+      "",
+      "CONSTRAINTS:",
+      "  format: ${7:single file}",
+      "  style: ${8:follow existing conventions}",
+      "",
+      "ASSUMPTIONS:",
+      "  - ${9:Dependencies are installed}",
+      "  - ${10:Environment is configured}",
+      "$0"
+    ],
+    "description": "Coding task template"
+  },
+  "Debugging Task": {
+    "scope": "generous-disposition",
+    "prefix": "gd-debug",
+    "body": [
+      "INTENT: Debug ${1:describe the bug or failing behavior}",
+      "",
+      "WHY: ${2:Impact or urgency}",
+      "",
+      "FOR: ${3:Senior developer}",
+      "",
+      "CONTEXT:",
+      "  error: ${4:error message or stack trace}",
+      "  file: ${5:affected file or component}",
+      "  stack: ${6:technology stack}",
+      "",
+      "CONSTRAINTS:",
+      "  format: ${7:diagnosis + fix}",
+      "",
+      "ASSUMPTIONS:",
+      "  - ${8:The error is reproducible}",
+      "$0"
+    ],
+    "description": "Debugging task template"
+  },
+  "Research Task": {
+    "scope": "generous-disposition",
+    "prefix": "gd-research",
+    "body": [
+      "INTENT: Research ${1:topic or question}",
+      "",
+      "WHY: ${2:Decision or need driving the research}",
+      "",
+      "FOR: ${3:Technical lead, decision makers}",
+      "",
+      "CONTEXT:",
+      "  domain: ${4:area of inquiry}",
+      "  constraints: ${5:time/resource constraints}",
+      "",
+      "DECOMPOSE:",
+      "  task-1: ${6:Gather sources}",
+      "  task-2: ${7:Synthesize findings}",
+      "  task-3: ${8:Write summary}",
+      "  strategy: sequential",
+      "$0"
+    ],
+    "description": "Research task template"
+  },
+  "INTENT block": {
+    "scope": "generous-disposition",
+    "prefix": "intent",
+    "body": ["INTENT: ${1:describe deliverable}$0"],
+    "description": "INTENT block only"
+  },
+  "WHY block": {
+    "scope": "generous-disposition",
+    "prefix": "why",
+    "body": ["WHY: ${1:business context or purpose}$0"],
+    "description": "WHY block only"
+  },
+  "FOR block": {
+    "scope": "generous-disposition",
+    "prefix": "for",
+    "body": ["FOR: ${1:audience and skill level}$0"],
+    "description": "FOR block only"
+  },
+  "CONTEXT block": {
+    "scope": "generous-disposition",
+    "prefix": "context",
+    "body": [
+      "CONTEXT:",
+      "  language: ${1:language}",
+      "  framework: ${2:framework}",
+      "  stack: ${3:stack}",
+      "  auth: ${4:auth method}",
+      "  db: ${5:database}",
+      "$0"
+    ],
+    "description": "CONTEXT block with common keys"
+  },
+  "CONSTRAINTS block": {
+    "scope": "generous-disposition",
+    "prefix": "constraints",
+    "body": [
+      "CONSTRAINTS:",
+      "  format: ${1:output format}",
+      "  length: ${2:length limit}",
+      "  style: ${3:style guide}",
+      "$0"
+    ],
+    "description": "CONSTRAINTS block"
+  },
+  "EXAMPLE block": {
+    "scope": "generous-disposition",
+    "prefix": "example",
+    "body": [
+      "EXAMPLE:",
+      "  ${1:example output fragment}",
+      "$0"
+    ],
+    "description": "EXAMPLE block"
+  },
+  "ASSUMPTIONS block": {
+    "scope": "generous-disposition",
+    "prefix": "assumptions",
+    "body": [
+      "ASSUMPTIONS:",
+      "  - ${1:assumption one}",
+      "  - ${2:assumption two}",
+      "$0"
+    ],
+    "description": "ASSUMPTIONS block with 2 items"
+  },
+  "DECOMPOSE block": {
+    "scope": "generous-disposition",
+    "prefix": "decompose",
+    "body": [
+      "DECOMPOSE:",
+      "  task-1: ${1:first task}",
+      "  task-2: ${2:second task}",
+      "  strategy: ${3|sequential,parallel,hybrid|}",
+      "$0"
+    ],
+    "description": "DECOMPOSE block with task-1, task-2, strategy"
+  }
+}

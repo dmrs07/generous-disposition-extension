@@ -1,0 +1,22 @@
+INTENT: Research vector database options for a semantic search feature in a SaaS product
+
+WHY: Architecture decision needed before Q2 sprint planning
+
+FOR: Technical lead and engineering team
+
+CONTEXT:
+  domain: vector databases, semantic search, embeddings
+  scale: ~1M documents, 1536-dim vectors
+  stack: Node.js backend, AWS deployment
+  budget: prefer open-source or low-cost managed
+
+CONSTRAINTS:
+  format: comparison table + recommendation
+  length: < 500 words
+  tone: technical, concise
+
+DECOMPOSE:
+  task-1: Survey top options (Pinecone, Weaviate, Qdrant, pgvector, Chroma)
+  task-2: Compare on: cost, latency, managed vs self-hosted, SDK support
+  task-3: Recommend best fit with rationale
+  strategy: sequential

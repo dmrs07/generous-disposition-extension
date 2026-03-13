@@ -1,0 +1,225 @@
+{
+  "name": "Generous Disposition",
+  "scopeName": "source.gd",
+  "fileTypes": ["gdp"],
+  "patterns": [
+    { "include": "#fenced-code-python" },
+    { "include": "#fenced-code-typescript" },
+    { "include": "#fenced-code-javascript" },
+    { "include": "#fenced-code-json" },
+    { "include": "#fenced-code-bash" },
+    { "include": "#fenced-code-rust" },
+    { "include": "#fenced-code-go" },
+    { "include": "#fenced-code-css" },
+    { "include": "#fenced-code-html" },
+    { "include": "#fenced-code-sql" },
+    { "include": "#fenced-code-yaml" },
+    { "include": "#fenced-code-generic" },
+    { "include": "#separator" },
+    { "include": "#block-header-known" },
+    { "include": "#block-header-unknown" },
+    { "include": "#list-item" },
+    { "include": "#key-value" },
+    { "include": "#arrow" },
+    { "include": "#placeholder" }
+  ],
+  "repository": {
+    "fenced-code-python": {
+      "begin": "^(\\s*)(```+\\s*)(python|py)\\s*$",
+      "end": "^(\\1```+)\\s*$",
+      "beginCaptures": {
+        "2": { "name": "punctuation.definition.fenced.gd" },
+        "3": { "name": "entity.name.tag.fenced.language.gd" }
+      },
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.fenced.gd" }
+      },
+      "contentName": "meta.embedded.block.python",
+      "patterns": [{ "include": "source.python" }]
+    },
+    "fenced-code-typescript": {
+      "begin": "^(\\s*)(```+\\s*)(typescript|ts)\\s*$",
+      "end": "^(\\1```+)\\s*$",
+      "beginCaptures": {
+        "2": { "name": "punctuation.definition.fenced.gd" },
+        "3": { "name": "entity.name.tag.fenced.language.gd" }
+      },
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.fenced.gd" }
+      },
+      "contentName": "meta.embedded.block.typescript",
+      "patterns": [{ "include": "source.ts" }]
+    },
+    "fenced-code-javascript": {
+      "begin": "^(\\s*)(```+\\s*)(javascript|js|jsx)\\s*$",
+      "end": "^(\\1```+)\\s*$",
+      "beginCaptures": {
+        "2": { "name": "punctuation.definition.fenced.gd" },
+        "3": { "name": "entity.name.tag.fenced.language.gd" }
+      },
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.fenced.gd" }
+      },
+      "contentName": "meta.embedded.block.javascript",
+      "patterns": [{ "include": "source.js" }]
+    },
+    "fenced-code-json": {
+      "begin": "^(\\s*)(```+\\s*)(json|jsonc)\\s*$",
+      "end": "^(\\1```+)\\s*$",
+      "beginCaptures": {
+        "2": { "name": "punctuation.definition.fenced.gd" },
+        "3": { "name": "entity.name.tag.fenced.language.gd" }
+      },
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.fenced.gd" }
+      },
+      "contentName": "meta.embedded.block.json",
+      "patterns": [{ "include": "source.json" }]
+    },
+    "fenced-code-bash": {
+      "begin": "^(\\s*)(```+\\s*)(bash|sh|shell|zsh)\\s*$",
+      "end": "^(\\1```+)\\s*$",
+      "beginCaptures": {
+        "2": { "name": "punctuation.definition.fenced.gd" },
+        "3": { "name": "entity.name.tag.fenced.language.gd" }
+      },
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.fenced.gd" }
+      },
+      "contentName": "meta.embedded.block.shellscript",
+      "patterns": [{ "include": "source.shell" }]
+    },
+    "fenced-code-rust": {
+      "begin": "^(\\s*)(```+\\s*)(rust|rs)\\s*$",
+      "end": "^(\\1```+)\\s*$",
+      "beginCaptures": {
+        "2": { "name": "punctuation.definition.fenced.gd" },
+        "3": { "name": "entity.name.tag.fenced.language.gd" }
+      },
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.fenced.gd" }
+      },
+      "contentName": "meta.embedded.block.rust",
+      "patterns": [{ "include": "source.rust" }]
+    },
+    "fenced-code-go": {
+      "begin": "^(\\s*)(```+\\s*)(go|golang)\\s*$",
+      "end": "^(\\1```+)\\s*$",
+      "beginCaptures": {
+        "2": { "name": "punctuation.definition.fenced.gd" },
+        "3": { "name": "entity.name.tag.fenced.language.gd" }
+      },
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.fenced.gd" }
+      },
+      "contentName": "meta.embedded.block.go",
+      "patterns": [{ "include": "source.go" }]
+    },
+    "fenced-code-css": {
+      "begin": "^(\\s*)(```+\\s*)(css|scss|sass|less)\\s*$",
+      "end": "^(\\1```+)\\s*$",
+      "beginCaptures": {
+        "2": { "name": "punctuation.definition.fenced.gd" },
+        "3": { "name": "entity.name.tag.fenced.language.gd" }
+      },
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.fenced.gd" }
+      },
+      "contentName": "meta.embedded.block.css",
+      "patterns": [{ "include": "source.css" }]
+    },
+    "fenced-code-html": {
+      "begin": "^(\\s*)(```+\\s*)(html|xml|svg)\\s*$",
+      "end": "^(\\1```+)\\s*$",
+      "beginCaptures": {
+        "2": { "name": "punctuation.definition.fenced.gd" },
+        "3": { "name": "entity.name.tag.fenced.language.gd" }
+      },
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.fenced.gd" }
+      },
+      "contentName": "meta.embedded.block.html",
+      "patterns": [{ "include": "text.html.basic" }]
+    },
+    "fenced-code-sql": {
+      "begin": "^(\\s*)(```+\\s*)(sql)\\s*$",
+      "end": "^(\\1```+)\\s*$",
+      "beginCaptures": {
+        "2": { "name": "punctuation.definition.fenced.gd" },
+        "3": { "name": "entity.name.tag.fenced.language.gd" }
+      },
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.fenced.gd" }
+      },
+      "contentName": "meta.embedded.block.sql",
+      "patterns": [{ "include": "source.sql" }]
+    },
+    "fenced-code-yaml": {
+      "begin": "^(\\s*)(```+\\s*)(yaml|yml)\\s*$",
+      "end": "^(\\1```+)\\s*$",
+      "beginCaptures": {
+        "2": { "name": "punctuation.definition.fenced.gd" },
+        "3": { "name": "entity.name.tag.fenced.language.gd" }
+      },
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.fenced.gd" }
+      },
+      "contentName": "meta.embedded.block.yaml",
+      "patterns": [{ "include": "source.yaml" }]
+    },
+    "fenced-code-generic": {
+      "begin": "^(\\s*)(```+\\s*)(\\w+)\\s*$",
+      "end": "^(\\1```+)\\s*$",
+      "beginCaptures": {
+        "2": { "name": "punctuation.definition.fenced.gd" },
+        "3": { "name": "entity.name.tag.fenced.language.gd" }
+      },
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.fenced.gd" }
+      },
+      "contentName": "meta.embedded.block.generic.gd"
+    },
+    "separator": {
+      "match": "^---\\s*$",
+      "name": "comment.line.separator.gd"
+    },
+    "block-header-known": {
+      "match": "^(INTENT|WHY|FOR|CONTEXT|CONSTRAINTS|EXAMPLE|ASSUMPTIONS|DECOMPOSE)(\\s*:\\s*)(.*)",
+      "captures": {
+        "1": { "name": "keyword.control.block.gd" },
+        "2": { "name": "punctuation.separator.key-value.gd" },
+        "3": { "name": "string.unquoted.block-value.gd" }
+      }
+    },
+    "block-header-unknown": {
+      "match": "^([A-Z_]+)(\\s*:)",
+      "captures": {
+        "1": { "name": "invalid.illegal.unknown-block.gd" },
+        "2": { "name": "punctuation.separator.key-value.gd" }
+      }
+    },
+    "list-item": {
+      "match": "^(\\s{2,})(-)\\s+(.*)",
+      "captures": {
+        "2": { "name": "punctuation.definition.list.gd" },
+        "3": { "name": "markup.list.item.gd" }
+      }
+    },
+    "key-value": {
+      "match": "^(\\s{2,})([\\w\\-]+)(\\s*:\\s*)(.*)",
+      "captures": {
+        "2": { "name": "variable.other.key.gd" },
+        "3": { "name": "punctuation.separator.key-value.gd" },
+        "4": { "name": "string.unquoted.value.gd" }
+      }
+    },
+    "arrow": {
+      "match": "→",
+      "name": "keyword.operator.arrow.gd"
+    },
+    "placeholder": {
+      "match": "\\bTBD\\b|\\bFIXME\\b|\\?\\?\\?|<fill-me>|<\\.\\.\\.>",
+      "name": "invalid.deprecated.placeholder.gd"
+    }
+  }
+}

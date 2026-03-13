@@ -1,0 +1,23 @@
+INTENT: Write a Python script that renames files in a directory by replacing spaces with underscores
+
+WHY: Needed for a batch cleanup task before uploading files to S3
+
+FOR: Intermediate Python developer
+
+CONTEXT:
+  language: Python 3.11
+  platform: macOS / Linux
+  scope: single directory, non-recursive
+
+CONSTRAINTS:
+  format: single script file
+  length: < 50 lines
+  style: use pathlib, no external dependencies
+
+EXAMPLE:
+  my file name.txt → my_file_name.txt
+  another file.jpg → another_file.jpg
+
+ASSUMPTIONS:
+  - Script runs from the target directory or accepts a path argument
+  - No name collisions exist after renaming

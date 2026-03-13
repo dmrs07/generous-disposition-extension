@@ -1,0 +1,128 @@
+{
+  "name": "generous-disposition",
+  "displayName": "Generous Disposition",
+  "description": "Prompt authoring for .gdp files: syntax highlighting, autocomplete, linting, token estimation",
+  "version": "1.0.0",
+  "publisher": "generous-disposition",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters",
+    "Snippets"
+  ],
+  "icon": "icons/gd-extension-icon.png",
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "generous-disposition",
+        "aliases": [
+          "Generous Disposition",
+          "gd"
+        ],
+        "extensions": [
+          ".gdp"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "generous-disposition",
+        "scopeName": "source.gd",
+        "path": "./syntaxes/generous-disposition.tmLanguage.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "generous-disposition-icons",
+        "label": "Generous Disposition Icons",
+        "path": "./icons/gd-icon-theme.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "generous-disposition",
+        "path": "./snippets/generous-disposition.code-snippets"
+      }
+    ],
+    "commands": [
+      {
+        "command": "gd.createPrompt",
+        "title": "GD: Create New Prompt"
+      },
+      {
+        "command": "gd.runLinter",
+        "title": "GD: Run Linter"
+      },
+      {
+        "command": "gd.estimateTokens",
+        "title": "GD: Estimate Tokens"
+      },
+      {
+        "command": "gd.normalizePrompt",
+        "title": "GD: Normalize Prompt"
+      },
+      {
+        "command": "gd.convertFreeform",
+        "title": "GD: Convert Freeform to GD"
+      }
+    ],
+    "configuration": {
+      "title": "Generous Disposition",
+      "properties": {
+        "generousDisposition.tokenProfile": {
+          "type": "string",
+          "enum": [
+            "gpt-4 / claude (default)",
+            "gpt-3.5",
+            "llama-3"
+          ],
+          "default": "gpt-4 / claude (default)",
+          "description": "Token estimation profile to use"
+        },
+        "generousDisposition.tokenWarningThreshold": {
+          "type": "number",
+          "default": 800,
+          "description": "Warn when estimated token count exceeds this threshold"
+        },
+        "generousDisposition.enableLinting": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable real-time linting for .gdp files"
+        },
+        "generousDisposition.showStatusBar": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show token count and score in status bar"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "node esbuild.js --production",
+    "compile": "node esbuild.js",
+    "watch": "node esbuild.js --watch",
+    "test": "tsc -p tsconfig.json && mocha --ui tdd 'out/test/*.test.js'",
+    "lint": "eslint src --ext ts",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "@vscode/test-electron": "^2.3.8",
+    "@vscode/vsce": "^2.23.0",
+    "esbuild": "^0.20.0",
+    "eslint": "^8.56.0",
+    "mocha": "^10.3.0",
+    "sharp": "^0.34.5",
+    "typescript": "^5.3.3"
+  }
+}

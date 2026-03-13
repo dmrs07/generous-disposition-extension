@@ -1,0 +1,11 @@
+{
+  "iconDefinitions": {
+    "_gdp_file": {
+      "iconPath": "./gd-file-icon.svg"
+    }
+  },
+  "fileExtensions": {
+    "gdp": "_gdp_file"
+  },
+  "file": "_gdp_file"
+}

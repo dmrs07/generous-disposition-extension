@@ -24,6 +24,7 @@ pnpm-debug.log*
 # Node and frontend tooling
 **/node_modules/
 **/.npm/
+**/.npm-cache/
 **/.pnpm-store/
 **/.yarn/
 **/.parcel-cache/

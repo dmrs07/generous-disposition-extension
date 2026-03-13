@@ -4,6 +4,20 @@
   "description": "Prompt authoring for .gdp files: syntax highlighting, autocomplete, linting, token estimation",
   "version": "1.0.0",
   "publisher": "generous-disposition",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmrs07/generous-disposition-extension.git",
+    "directory": "generous-disposition-extension"
+  },
+  "files": [
+    "dist/**",
+    "icons/**",
+    "snippets/**",
+    "syntaxes/**",
+    "language-configuration.json",
+    "README.md",
+    "CHANGELOG.md"
+  ],
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -108,7 +122,7 @@
     "watch": "node esbuild.js --watch",
     "test": "tsc -p tsconfig.json && mocha --ui tdd 'out/test/*.test.js'",
     "lint": "eslint src --ext ts",
-    "package": "vsce package"
+    "package": "vsce package --no-dependencies"
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",

@@ -1,0 +1,10 @@
+services:
+  generousdisposition:
+    image: generousdisposition
+    build:
+      context: generous-disposition-extension
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000

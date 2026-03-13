@@ -9,15 +9,6 @@
     "type": "git",
     "url": "git+https://github.com/dmrs07/generous-disposition-extension.git"
   },
-  "files": [
-    "dist/**",
-    "icons/**",
-    "snippets/**",
-    "syntaxes/**",
-    "language-configuration.json",
-    "README.md",
-    "CHANGELOG.md"
-  ],
   "engines": {
     "vscode": "^1.85.0"
   },

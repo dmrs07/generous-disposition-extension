@@ -6,8 +6,7 @@
   "publisher": "generous-disposition",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dmrs07/generous-disposition-extension.git",
-    "directory": "generous-disposition-extension"
+    "url": "git+https://github.com/dmrs07/generous-disposition-extension.git"
   },
   "files": [
     "dist/**",

@@ -4,6 +4,7 @@
   "description": "Prompt authoring for .gdp files: syntax highlighting, autocomplete, linting, token estimation",
   "version": "1.0.0",
   "publisher": "generous-disposition",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dmrs07/generous-disposition-extension.git"

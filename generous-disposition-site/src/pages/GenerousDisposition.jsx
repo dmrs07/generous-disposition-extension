@@ -231,7 +231,7 @@ export default function GenerousDisposition() {
           <div className="fu" style={{ display: "grid", gap: "clamp(16px,3vw,20px)" }}>
             <Tag color="#f59e0b">06 — GENEROUS DECOMPOSITION</Tag>
             <h2 style={{ ...H2, color: "#fafafa" }}>Know when to split</h2>
-            <Prose last>The 6th pillar. Not every task fits one prompt. When complexity exceeds reliable generation, split into sub-tasks — each with its own GD structure. Paste a task description below to detect decomposition signals.</Prose>
+            <Prose last>The 6th pillar. Not every task fits one prompt. When complexity exceeds reliable generation, split into sub-tasks — each with its own GDP structure. Paste a task description below to detect decomposition signals.</Prose>
 
             <Card accent="#f59e0b">
               <Lbl color="#f59e0b">Split Detector</Lbl>
@@ -252,7 +252,7 @@ export default function GenerousDisposition() {
                     {decompResult.suggestion === "split" ? "SPLIT" : decompResult.suggestion === "consider" ? "MAYBE" : "SINGLE"}
                   </div>
                   <div style={{ fontSize: 12, marginTop: 6, color: decompResult.suggestion === "split" ? "#fca5a5" : decompResult.suggestion === "consider" ? "#fcd34d" : "#86efac" }}>
-                    {decompResult.suggestion === "split" ? "This task has strong decomposition signals" : decompResult.suggestion === "consider" ? "Some signals detected — evaluate trade-offs" : "One GD prompt should handle this well"}
+                    {decompResult.suggestion === "split" ? "This task has strong decomposition signals" : decompResult.suggestion === "consider" ? "Some signals detected — evaluate trade-offs" : "One .gdp prompt should handle this well"}
                   </div>
                   <div style={{ marginTop: 10, height: 6, background: "#27272a", borderRadius: 3, overflow: "hidden" }}>
                     <div style={{ height: "100%", width: `${Math.min(decompResult.score / 15 * 100, 100)}%`, background: decompResult.suggestion === "split" ? "#ef4444" : decompResult.suggestion === "consider" ? "#f59e0b" : "#22c55e", borderRadius: 3, transition: "all 0.4s" }} />
@@ -283,7 +283,7 @@ export default function GenerousDisposition() {
               <Lbl color="#f59e0b">Decomposition Patterns</Lbl>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(260px,100%),1fr))", gap: 12 }}>
                 {[
-                  { name: "Sequential Chain", icon: "→", desc: "Each task uses the output of the previous. Common for: schema → code → tests.", example: "task-1 → task-2 → task-3\nEach GD prompt includes prior output in CONTEXT", color: "#a78bfa" },
+                  { name: "Sequential Chain", icon: "→", desc: "Each task uses the output of the previous. Common for: schema → code → tests.", example: "task-1 → task-2 → task-3\nEach .gdp prompt includes prior output in CONTEXT", color: "#a78bfa" },
                   { name: "Parallel Fan-Out", icon: "⇉", desc: "Independent tasks run simultaneously. Common for: multi-format content, multi-language.", example: "task-1 ──┬── task-2a (frontend)\n         ├── task-2b (backend)\n         └── task-2c (tests)", color: "#22c55e" },
                   { name: "Hierarchical", icon: "▽", desc: "High-level plan → detailed sub-plans → execution. Common for: architecture → modules.", example: "task-1: Architecture plan\n  task-1a: Module A detail\n  task-1b: Module B detail\n    task-1b-i: Endpoint code", color: "#f59e0b" },
                 ].map(p => (
@@ -309,11 +309,11 @@ export default function GenerousDisposition() {
         {/* ── SYNTAX ── */}
         {sec === "syntax" && (
           <div className="fu" style={{ display: "grid", gap: "clamp(16px,3vw,20px)" }}>
-            <Tag>03 — THE GD SYNTAX</Tag>
+            <Tag>03 — THE GDP SYNTAX</Tag>
             <h2 style={H2}>Generous compression</h2>
             <Card>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14, flexWrap: "wrap", gap: 8 }}>
-                <Lbl color="#a78bfa">GD Prompt Template (with DECOMPOSE block)</Lbl>
+                <Lbl color="#a78bfa">.gdp Prompt Template (with DECOMPOSE block)</Lbl>
                 <span style={{ fontSize: 11, color: "#3f3f46", background: "#18181b", padding: "4px 8px", borderRadius: 4 }}>~95 tokens</span>
               </div>
               <pre style={{ fontSize: "clamp(11px,2.2vw,13px)", color: "#d4d4d8", whiteSpace: "pre-wrap", lineHeight: 1.7, fontFamily: "'IBM Plex Mono',monospace", background: "#0a0a0b", padding: "clamp(12px,3vw,20px)", borderRadius: 8, border: "1px solid #27272a" }}>{GD_SYNTAX}</pre>
@@ -329,7 +329,7 @@ export default function GenerousDisposition() {
               </Card>
               <Card>
                 <Lbl color="#71717a">Token Comparison</Lbl>
-                {[{ l: "XML", t: "~210", w: 100, c: "#ef4444" }, { l: "JSON", t: "~155", w: 74, c: "#f59e0b" }, { l: "Prose", t: "~120*", w: 57, c: "#71717a" }, { l: "GD Syntax", t: "~95", w: 45, c: "#22c55e" }, { l: "GD + TOON", t: "~75", w: 36, c: "#a78bfa" }].map((t, i) => (
+                {[{ l: "XML", t: "~210", w: 100, c: "#ef4444" }, { l: "JSON", t: "~155", w: 74, c: "#f59e0b" }, { l: "Prose", t: "~120*", w: 57, c: "#71717a" }, { l: "GDP Syntax", t: "~95", w: 45, c: "#22c55e" }, { l: "GDP + TOON", t: "~75", w: 36, c: "#a78bfa" }].map((t, i) => (
                   <div key={i} style={{ marginBottom: 10 }}>
                     <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, marginBottom: 3 }}>
                       <span style={{ color: "#a1a1aa" }}>{t.l}</span><span style={{ color: t.c, fontWeight: 500 }}>{t.t} tok</span>
@@ -362,7 +362,7 @@ export default function GenerousDisposition() {
                 <Metric label="TCC" value={`${nTCC.toLocaleString()} tok`} big accent="#ef4444" />
               </Card>
               <Card accent="#22c55e">
-                <Lbl color="#22c55e">GD Prompt</Lbl>
+                <Lbl color="#22c55e">GDP Prompt</Lbl>
                 <Metric label="Prompt tokens" value={cc.gd.prompt} /><Metric label="Rounds" value={cc.gd.rounds} />
                 <div style={{ margin: "10px 0", borderTop: "1px solid #27272a" }} />
                 <Metric label="TCC" value={`${gTCC.toLocaleString()} tok`} big accent="#22c55e" />
@@ -423,7 +423,7 @@ export default function GenerousDisposition() {
               { s: "02", t: "Add CONSTRAINTS", d: "Define format, length, boundaries. Stops over-generation.", i: "+15% TCC ↓" },
               { s: "03", t: "Add ASSUMPTIONS", d: "Highest-leverage block. Each unstated one is a coin-flip.", i: "+10% TCC ↓" },
               { s: "04", t: "Use TOON for data in CONTEXT", d: "Structured data payloads compress 30-60% vs JSON.", i: "+30% data ↓" },
-              { s: "05", t: "Apply DECOMPOSITION", d: "Use the Split Detector. If score > 8, split into sub-tasks with individual GD structure.", i: "Accuracy ↑", accent: "#f59e0b" },
+              { s: "05", t: "Apply DECOMPOSITION", d: "Use the Split Detector. If score > 8, split into sub-tasks with individual GDP structure.", i: "Accuracy ↑", accent: "#f59e0b" },
               { s: "06", t: "Measure your TCC", d: "Track total tokens across all rounds for your top 5 tasks.", i: "Proves it" },
             ].map(s => (
               <div key={s.s} style={{ padding: "clamp(14px,3vw,20px)", background: "#18181b", borderRadius: 10, border: "1px solid #27272a", borderLeft: s.accent ? `3px solid ${s.accent}` : undefined, display: "grid", gridTemplateColumns: "36px 1fr auto", gap: "clamp(8px,2vw,16px)", alignItems: "start" }}>
@@ -436,7 +436,7 @@ export default function GenerousDisposition() {
               </div>
             ))}
             <Card>
-              <Lbl color="#a78bfa">GD Checklist</Lbl>
+              <Lbl color="#a78bfa">GDP Checklist</Lbl>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(220px,100%),1fr))", gap: 8, marginTop: 4 }}>
                 {["WHAT + WHY + FOR WHOM stated?", "All context front-loaded?", "Format, length, boundaries defined?", "Example of desired output?", "Assumptions listed explicitly?", "Task simple enough for 1 prompt?", "TOON for structured data?"].map((q, i) => (
                   <div key={i} style={{ fontSize: "clamp(11px,2.2vw,13px)", color: "#a1a1aa", padding: "8px 10px", background: "#0a0a0b", borderRadius: 6, border: `1px solid ${i === 5 ? '#f59e0b30' : '#27272a'}`, display: "flex", gap: 8, alignItems: "center" }}>

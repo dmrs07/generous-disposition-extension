@@ -13,7 +13,7 @@ const PAGES = [
   {
     path: "/linter",
     icon: "◎",
-    title: "GD Spec & Linter",
+    title: "GDP Spec & Linter",
     subtitle: ".gdp Format + Validator",
     desc: "Write and validate .gdp prompts in real-time. Decomposition analysis, block coverage scoring, and token estimates.",
     color: "#818cf8",

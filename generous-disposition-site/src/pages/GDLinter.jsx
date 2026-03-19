@@ -80,7 +80,7 @@ function tokEst(t) {
   return Math.ceil(t.split(/\s+/).filter(Boolean).length * 1.33);
 }
 
-function lintGD(text) {
+function lintGDP(text) {
   const lines = text.split("\n"), issues = [], found = {};
   let cur = null, ln = 0, free = false, order = [];
   let intentText = "", contextLines = 0;
@@ -108,7 +108,7 @@ function lintGD(text) {
     }
   }
 
-  if (!found["INTENT"]) issues.push({ line: 1, level: "error", msg: "Missing INTENT — every GD prompt needs one" });
+  if (!found["INTENT"]) issues.push({ line: 1, level: "error", msg: "Missing INTENT — every .gdp prompt needs one" });
   if (!found["CONTEXT"] && Object.keys(found).length > 1) issues.push({ line: 0, level: "info", msg: "Consider adding CONTEXT" });
   if (!found["CONSTRAINTS"]) issues.push({ line: 0, level: "info", msg: "CONSTRAINTS prevents over-generation" });
   if (!found["ASSUMPTIONS"]) issues.push({ line: 0, level: "info", msg: "ASSUMPTIONS: each unstated = coin-flip" });
@@ -164,10 +164,10 @@ export default function GDLinter() {
   const nav = useNavigate();
   const [code, setCode] = useState(EXAMPLE_PROMPT);
   const [tab, setTab] = useState("linter");
-  const lint = useMemo(() => lintGD(code), [code]);
+  const lint = useMemo(() => lintGDP(code), [code]);
   const tok = useMemo(() => tokEst(code), [code]);
   const sCol = lint.score >= 80 ? "#22c55e" : lint.score >= 50 ? "#f59e0b" : "#ef4444";
-  const sLbl = lint.score >= 80 ? "Strong GD" : lint.score >= 50 ? "Partial GD" : "Weak GD";
+  const sLbl = lint.score >= 80 ? "Strong GDP" : lint.score >= 50 ? "Partial GDP" : "Weak GDP";
   const dCol = lint.decomp.level === "split" ? "#ef4444" : lint.decomp.level === "consider" ? "#f59e0b" : "#22c55e";
 
   return (
@@ -186,11 +186,11 @@ export default function GDLinter() {
           <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4, flexWrap: "wrap" }}>
             <button onClick={() => nav("/")} style={{ background: "none", border: "1px solid #27272a", borderRadius: 6, color: "#71717a", cursor: "pointer", fontSize: 14, padding: "4px 8px", fontFamily: "'IBM Plex Mono',monospace", lineHeight: 1 }} title="Back to home">← back</button>
             <span style={{ fontSize: "clamp(18px,4vw,22px)", color: "#a78bfa", fontFamily: "'Space Grotesk',sans-serif", fontWeight: 700 }}>◎</span>
-            <h1 style={{ fontSize: "clamp(18px,4vw,22px)", fontFamily: "'Space Grotesk',sans-serif", fontWeight: 700, letterSpacing: -0.5, color: "#fafafa" }}>GD Spec & Linter</h1>
+            <h1 style={{ fontSize: "clamp(18px,4vw,22px)", fontFamily: "'Space Grotesk',sans-serif", fontWeight: 700, letterSpacing: -0.5, color: "#fafafa" }}>GDP Spec & Linter</h1>
             <span style={{ fontSize: 11, color: "#3f3f46", background: "#18181b", padding: "3px 8px", borderRadius: 4 }}>v{VER}</span>
             <span style={{ fontSize: 10, color: "#f59e0b", background: "#f59e0b15", padding: "2px 8px", borderRadius: 10, fontWeight: 600 }}>+ DECOMPOSE</span>
           </div>
-          <p style={{ fontSize: "clamp(11px,2.2vw,13px)", color: "#52525b", maxWidth: 560 }}>Validate GD prompts with real-time linting, decomposition analysis, and token estimates.</p>
+          <p style={{ fontSize: "clamp(11px,2.2vw,13px)", color: "#52525b", maxWidth: 560 }}>Validate .gdp prompts with real-time linting, decomposition analysis, and token estimates.</p>
         </div>
       </header>
 
@@ -228,7 +228,7 @@ export default function GDLinter() {
               <div style={{ display: "grid", gap: 14 }}>
                 {/* Score */}
                 <div style={{ padding: "clamp(14px,3vw,20px)", background: "#18181b", borderRadius: 10, border: "1px solid #27272a", textAlign: "center" }}>
-                  <div style={{ fontSize: 11, color: "#52525b", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 6 }}>GD Score</div>
+                  <div style={{ fontSize: 11, color: "#52525b", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 6 }}>GDP Score</div>
                   <div style={{ fontSize: "clamp(32px,8vw,42px)", fontWeight: 700, fontFamily: "'Space Grotesk',sans-serif", color: sCol, lineHeight: 1 }}>{lint.score}</div>
                   <div style={{ fontSize: 12, color: sCol, fontWeight: 500, marginTop: 3 }}>{sLbl}</div>
                   <div style={{ marginTop: 10, height: 6, background: "#27272a", borderRadius: 3, overflow: "hidden" }}>
@@ -321,7 +321,7 @@ export default function GDLinter() {
                 "Use when task has >2 action verbs in INTENT, CONTEXT >300 tokens, or spans >2 domains",
                 "Each sub-task is named task-N with a brief description",
                 "Include a strategy: line — sequential, parallel, or hybrid",
-                "Each sub-task should get its own GD prompt when executed",
+                "Each sub-task should get its own .gdp prompt when executed",
                 "Use → notation for dependencies: task-1 → task-2 means 2 depends on 1",
                 "Mark parallelizable tasks: 'task-2, task-3 can run in parallel after task-1'",
               ].map((r, i) => (
@@ -370,7 +370,7 @@ DECOMPOSE:
               { task: "Code Generation", must: "INTENT, CONTEXT, CONSTRAINTS", decomp: "Split when: multi-file output, >2 entities, frontend + backend", tip: "Entity shape in CONTEXT eliminates 90% of guessing" },
               { task: "Agent System Prompts", must: "INTENT, CONTEXT (tools), CONSTRAINTS (format)", decomp: "Split when: >5 intents, complex routing, multiple tool chains", tip: "Highest GD ROI — agent loops multiply every wasted token" },
               { task: "Architecture Design", must: "INTENT, CONTEXT, CONSTRAINTS, DECOMPOSE", decomp: "Almost always decompose: overview → module details → implementation", tip: "Use hierarchical decomposition pattern" },
-              { task: "Full-Stack Features", must: "All 6 pillars — DECOMPOSE is critical here", decomp: "Always decompose: DB → API → frontend → tests → deploy", tip: "Each layer gets its own GD prompt with prior layer output in CONTEXT" },
+              { task: "Full-Stack Features", must: "All 6 pillars — DECOMPOSE is critical here", decomp: "Always decompose: DB → API → frontend → tests → deploy", tip: "Each layer gets its own .gdp prompt with prior layer output in CONTEXT" },
             ].map((r, i) => (
               <div key={i} style={{ padding: "clamp(14px,3vw,20px)", background: "#18181b", borderRadius: 10, border: "1px solid #27272a" }}>
                 <div style={{ fontSize: 14, fontWeight: 600, color: "#fafafa", fontFamily: "'Space Grotesk',sans-serif", marginBottom: 10 }}>{r.task}</div>
